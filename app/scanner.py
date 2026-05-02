@@ -39,10 +39,14 @@ async def scan_sources(force: bool = False) -> dict[str, Any]:
         skipped: list[dict[str, Any]] = []
         processed_ids: list[str] = []
 
-        for item in candidates:
+        for index, item in enumerate(candidates):
+            # ADD THIS BLOCK: Sleep between requests (but skip the first one)
+            if index > 0:
+                await asyncio.sleep(settings.gemini_request_delay)
+                
             try:
                 decision = await evaluate_with_gemini(item)
-            except Exception as exc:  # noqa: BLE001 - keep one bad AI call from stopping the scan.
+            except Exception as exc:  # noqa: BLE001
                 skipped.append({"title": item.title, "url": item.url, "reason": f"Gemini error: {exc}"})
                 continue
 

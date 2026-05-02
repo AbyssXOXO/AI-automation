@@ -5,11 +5,13 @@ from contextlib import asynccontextmanager
 from typing import Any
 
 from fastapi import FastAPI, Query
+from telegram.ext import Application, CommandHandler 
 
 from app.config import settings
 from app.scanner import periodic_scan_loop, scan_if_due, scan_sources, start_background_scan
 from app.state import state
 from app.utils import iso_now
+from app.tg_commands import handle_ping, handle_state, handle_scan 
 
 
 @asynccontextmanager
@@ -17,6 +19,18 @@ async def lifespan(_: FastAPI):
     task: asyncio.Task[None] | None = None
     if settings.background_loop:
         task = asyncio.create_task(periodic_scan_loop())
+
+    tg_app = None
+    if settings.telegram_bot_token:
+        tg_app = Application.builder().token(settings.telegram_bot_token).build()
+        tg_app.add_handler(CommandHandler("ping", handle_ping))
+        tg_app.add_handler(CommandHandler("state", handle_state))
+        tg_app.add_handler(CommandHandler("scan", handle_scan))
+        
+        await tg_app.initialize()
+        await tg_app.start()
+        await tg_app.updater.start_polling()
+
     try:
         yield
     finally:
@@ -26,6 +40,13 @@ async def lifespan(_: FastAPI):
                 await task
             except asyncio.CancelledError:
                 pass
+
+        if tg_app:
+            await tg_app.updater.stop()
+            await tg_app.stop()
+            await tg_app.shutdown()
+
+def create_app() -> FastAPI:
 
 
 def create_app() -> FastAPI:
