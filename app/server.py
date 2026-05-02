@@ -46,8 +46,6 @@ async def lifespan(_: FastAPI):
             await tg_app.stop()
             await tg_app.shutdown()
 
-def create_app() -> FastAPI:
-
 
 def create_app() -> FastAPI:
     api = FastAPI(
