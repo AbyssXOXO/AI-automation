@@ -1,3 +1,18 @@
+# ==================================================================================== 
+# Render Blueprint Configuration
+#
+# This file provides Infrastructure as Code (IaC) for deploying the bot on Render.
+# It defines the web service configuration, Python environment, build/start 
+# commands, and the default environment variables. 
+#
+# By including this file, anyone who forks this repository can deploy their 
+# own instance of the bot with a single click using Render's Blueprint feature.
+#
+# Note: Sensitive keys (like API keys and Telegram tokens) are set to 
+# `sync: false` so they are not hardcoded and must be provided securely 
+# via the Render dashboard during setup.
+# ====================================================================================
+
 services:
   - type: web
     name: ai-news-automation
