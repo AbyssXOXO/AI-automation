@@ -20,7 +20,7 @@ async def check_auth(update: Update) -> bool:
 
 async def handle_ping(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not await check_auth(update): return
-    await update.message.reply_text("🏓 Pong! The AI News Bot is online and monitoring.")
+    await update.message.reply_text("Pong! The AI News Bot is online and monitoring.")
 
 async def handle_state(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not await check_auth(update): return
