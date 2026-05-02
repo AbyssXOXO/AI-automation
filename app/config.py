@@ -12,7 +12,7 @@ from app.utils import env_bool, env_float, env_int, parse_json_list, parse_named
 @dataclass(slots=True)
 class Settings:
     gemini_api_key: str = os.getenv("GEMINI_API_KEY") or os.getenv("API_KEY", "")
-    gemini_model: str = os.getenv("GEMINI_MODEL", "gemini-3-flash")
+    gemini_model: str = os.getenv("GEMINI_MODEL", "gemini-2.5-pro")
     telegram_bot_token: str = os.getenv("TELEGRAM_BOT_TOKEN") or os.getenv("BOT_TOKEN", "")
     telegram_chat_id: str = os.getenv("TELEGRAM_CHAT_ID") or os.getenv("TELEGRAM_ACCOUNT_ID", "")
     target_companies: str = os.getenv("TARGET_COMPANIES", "Google, Microsoft, IBM")
