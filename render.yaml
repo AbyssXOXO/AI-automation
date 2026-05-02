@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: ai-news-automation
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: TARGET_COMPANIES
+        value: Google, Microsoft, IBM
+      - key: USER_PROFILE
+        value: Student interested in Python, AI, cloud, free courses, hackathons, and developer opportunities.
+      - key: TOPIC_PROMPT
+        value: Free courses, hackathons, coding challenges, student programs, developer events, certification offers, and hands-on AI or cloud opportunities from Google, Microsoft, and IBM.
+      - key: SCAN_INTERVAL_MINUTES
+        value: 180
+      - key: RELEVANCE_THRESHOLD
+        value: 0.7
+      - key: MAX_ITEMS_PER_SOURCE
+        value: 8
