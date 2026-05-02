@@ -1,3 +1,9 @@
+##Data Models.
+#Defines the core data structures used throughout the application. 
+#The `NewsItem` dataclass acts as the standard blueprint for an opportunity 
+#as it travels through the pipeline: from the scraper, to the AI gatekeeper, 
+#and finally out to Telegram.
+
 from __future__ import annotations
 
 from dataclasses import dataclass

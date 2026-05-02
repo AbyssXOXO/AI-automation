@@ -1,3 +1,10 @@
+##Core Orchestration Engine.
+#This is the central traffic controller of the bot. It pulls everything together:
+#it calls the fetchers, filters out items we've already seen, spaces out the 
+#requests to the Gemini API to avoid rate limits, and triggers the Telegram 
+#notifications. It also uses async locks to ensure we don't accidentally run 
+#multiple scans at the exact same time.
+
 from __future__ import annotations
 
 import asyncio

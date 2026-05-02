@@ -1,3 +1,8 @@
+##Telegram Notification Dispatcher.
+#Takes the structured JSON output from the AI Gatekeeper and formats it into 
+#a clean, highly readable HTML message. It uses the `python-telegram-bot` library 
+#to securely dispatch these alerts directly to the configured Telegram chat.
+
 from __future__ import annotations
 
 from html import escape

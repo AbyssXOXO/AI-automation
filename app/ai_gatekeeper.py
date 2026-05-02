@@ -1,3 +1,11 @@
+
+##AI Gatekeeper Module.
+#This file acts as the brain of the bot. It takes the raw text scraped from 
+#the web and feeds it to the Google Gemini API. It uses a strict prompt 
+#to force the AI to return a structured JSON response, deciding whether 
+#an item is genuinely a good opportunity (like a free course or hackathon) 
+#or just marketing fluff to ignore.
+
 from __future__ import annotations
 
 import asyncio
@@ -50,7 +58,7 @@ Return only a JSON object with these exact keys:
   "title": "Official opportunity title",
   "summary": "One concise sentence for Telegram.",
   "why_you_care": "One sentence explaining why this matches the user.",
-  "deadline": "Unknown",
+  "deadline": "Extract the exact deadline, end date, or registration close date. If none is found, output 'Unknown'.",
   "prize": "Unknown",
   "cost": "Free",
   "action_url": "https://example.com",

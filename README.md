@@ -28,6 +28,7 @@ By default, the bot is tuned for:
 |   +-- scanner.py        # Scan loop, dedupe, orchestration
 |   +-- server.py         # FastAPI routes and app factory
 |   +-- state.py          # Local seen-item state
+|   +-- tg_commands.py    # Commands for telegram
 |   +-- utils.py          # Small shared helpers
 +-- main.py               # Render/uvicorn entrypoint
 +-- requirements.txt
@@ -56,7 +57,7 @@ Copy `.env.example` into your Render dashboard values or your local environment.
 Required for AI filtering:
 
 - `GEMINI_API_KEY` or `API_KEY`
-- `GEMINI_MODEL`, default `gemini-1.5-flash`
+- `GEMINI_MODEL`, default `gemini-2.5-flash`
 
 Required for Telegram notifications:
 

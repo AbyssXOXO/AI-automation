@@ -1,3 +1,9 @@
+##FastAPI Server Setup.
+#Provides the web interface for the bot. It exposes HTTP endpoints (`/ping`, 
+#`/scan`, `/state`) that allow cloud platforms like Render or Cron-job.org 
+#to keep the application awake and trigger scans remotely. It also manages 
+#the application lifecycle, including starting background tasks and the Telegram listener.
+
 from __future__ import annotations
 
 import asyncio

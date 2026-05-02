@@ -1,3 +1,9 @@
+##Persistent Memory Manager.
+#Responsible for ensuring the bot doesn't spam you with duplicate alerts. 
+#It manages reading and writing to a local `state.json` file, acting as a 
+#rolling cache (up to the configured maximum limit) of the unique fingerprints 
+#for every opportunity the bot has already processed.
+
 from __future__ import annotations
 
 import json

@@ -1,3 +1,9 @@
+##Default Scraping Targets & Exclusions.
+#Contains the built-in list of Microsoft, Google, and IBM developer hubs 
+#that the bot monitors out-of-the-box. It also includes a blacklist of 
+#generic website headings (like "Learn More" or "Home") so the scraper 
+#knows to ignore useless navigation links.
+
 from __future__ import annotations
 
 from typing import Any

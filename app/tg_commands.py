@@ -1,3 +1,8 @@
+##Telegram Command Interface & Security.
+#Allows remote control of the bot directly from the Telegram app. It listens 
+#for commands like `/scan` and `/state` and executes them. Crucially, it 
+#includes an authentication layer to actively reject any unauthorized users 
+#who discover the bot, ensuring only the owner can trigger actions.
 
 import json
 from telegram import Update

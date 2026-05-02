@@ -1,3 +1,9 @@
+##Configuration Management.
+#This module handles all the environment variables and settings for the bot.
+#It defines the default behaviors, scraping limits, and AI parameters. 
+#If someone forks this repo, this is the central place to see all the 
+#"knobs and dials" they can tweak via their .env file.
+
 from __future__ import annotations
 
 import os

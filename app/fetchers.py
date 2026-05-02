@@ -1,3 +1,10 @@
+##Web Scraping & RSS Fetching Engine.
+#The heavy lifter of the project. It uses `httpx` for async web requests, 
+#`feedparser` to handle RSS feeds, and `BeautifulSoup4` to parse raw HTML pages.
+#It includes semantic extraction logic to intelligently grab the context around 
+#links so the AI has enough text to evaluate the opportunity.
+
+
 from __future__ import annotations
 
 import asyncio

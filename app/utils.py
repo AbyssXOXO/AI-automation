@@ -1,3 +1,9 @@
+##Shared Utilities and Helpers.
+#A collection of lightweight, standalone functions used across the application. 
+#This includes HTML text cleaning tools, timezone-aware datetime helpers, 
+#JSON parsing fallbacks for the AI output, and the SHA-256 hashing logic 
+#used to generate unique IDs for every scraped link.
+
 from __future__ import annotations
 
 import hashlib
